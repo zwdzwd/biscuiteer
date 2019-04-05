@@ -6,7 +6,7 @@
 #' @param paths paths to the bed files
 #' @param chrm  chromosome name
 #' @param beg   start coordinate of CpG
-#' @param end   end coordinate of CpG
+#' @param end   end coordinate of CpG 2^29 is the max taken
 #' @param as_gr whether to output GRanges
 #' @param min_depth mask all depth < min_depth as NA. This is useful as depths
 #' are not recorded in the output
@@ -20,13 +20,13 @@
 #'
 #' @export
 tabixToGr <- function(
-    paths, chrm, beg = 1, end = 9999999,
+    paths, chrm, beg = 1, end = 2^28,
     as_gr = FALSE, min_depth = 0, sample_names = NULL,
     BPPARAM = SerialParam()) {
 
     input_range <- GRanges(chrm, IRanges(beg, end))
     df_list <- bplapply(paths, function(path) {
-        df <- as.tibble(t(simplify2array(strsplit(scanTabix(
+        df <- as_tibble(t(simplify2array(strsplit(scanTabix(
             path, param=input_range)[[1]], '\t'))), stringsAsFactors = FALSE)
         
         colnames(df) <- c('chrm','beg','end','beta','depth')
