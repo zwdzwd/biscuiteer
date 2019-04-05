@@ -6,7 +6,7 @@
 The row names are the CpG coordinates. The column names are
 sample names.}
 \usage{
-tabixToMatrix(...)
+tabixToMatrix(..., min_depth = 0)
 }
 \arguments{
 \item{...}{tabixRetrieve and tabixToTable arguments}

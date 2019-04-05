@@ -80,7 +80,7 @@ tabixToTable <- function(..., min_depth = 0) {
 #' @seealso tabixToTable
 #'
 #' @export
-tabixToMatrix <- function(...) {
+tabixToMatrix <- function(..., min_depth = 0) {
 
     df_list <- tabixRetrieve(...)
 
