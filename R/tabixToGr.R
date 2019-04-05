@@ -20,7 +20,7 @@
 #'
 #' @export
 tabixToGr <- function(
-    paths, chrm, beg, end,
+    paths, chrm, beg = 1, end = 9999999,
     as_gr = FALSE, min_depth = 0, sample_names = NULL,
     BPPARAM = SerialParam()) {
 

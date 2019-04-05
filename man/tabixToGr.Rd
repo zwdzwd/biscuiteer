@@ -6,8 +6,8 @@
 The fourth column is DNA methylation level and the fifth is depth.
 This is also the default output of Biscuit BED.}
 \usage{
-tabixToGr(paths, chrm, beg, end, as_gr = FALSE, min_depth = 0,
-  sample_names = NULL, BPPARAM = SerialParam())
+tabixToGr(paths, chrm, beg = 1, end = 9999999, as_gr = FALSE,
+  min_depth = 0, sample_names = NULL, BPPARAM = SerialParam())
 }
 \arguments{
 \item{paths}{paths to the bed files}
